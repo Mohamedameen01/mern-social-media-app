@@ -1,7 +1,7 @@
 {
   "name": "client",
   "private": true,
-  "proxy": "http://localhost:5000",
+  "proxy": "https://mern-social-media-app-i0ee.onrender.com",
   "version": "0.0.0",
   "type": "module",
   "scripts": {
