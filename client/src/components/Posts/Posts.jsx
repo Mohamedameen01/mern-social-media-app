@@ -1,6 +1,6 @@
 import { useSelector } from "react-redux";
 
-import Post from "./post/Post";
+import Post from "./Post/Post";
 import PostLoader from "../Loader/PostLoader";
 
 function Posts() {
