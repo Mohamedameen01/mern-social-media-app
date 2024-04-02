@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const API = axios.create({ baseURL: 'https://mern-social-media-app-i0ee.onrender.com'});
+const API = axios.create({ baseURL: 'http://localhost:5000'});
 
 API.interceptors.request.use((req) => {
   if (localStorage.getItem("profile")) {

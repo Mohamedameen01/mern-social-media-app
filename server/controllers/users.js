@@ -32,7 +32,7 @@ export function userSignup(userData) {
           const token = await jwt.sign(
             { email: info.email, userId: info._id },
             process.env.TOKEN_CODE,
-            { expiresIn: "1h" }
+            { expiresIn: "2d" }
           );
           console.log(token);
           resolve({ data: info, token });
@@ -53,7 +53,7 @@ export function userSignin(userData) {
           const token = await jwt.sign(
             { email: user.email, userId: user._id },
             process.env.TOKEN_CODE,
-            { expiresIn: "1h" }
+            { expiresIn: "2d" }
           );
           resolve({ data: user, token });
         } else {
