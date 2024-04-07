@@ -1,11 +1,16 @@
 import { useState } from "react";
 import { TiDelete } from "react-icons/ti";
+import { useNavigate } from 'react-router-dom';
+import { useDispatch} from 'react-redux';
 
 function SearchForm() {
   const [text, setText] = useState("");
   const [search, setSearch] = useState("");
   const [tags, setTags] = useState([]);
   const [validationError, setValidationError] = useState("");
+  
+  const navigate = useNavigate();
+  const dispatch = useDispatch();
 
   const iconStyle = { color: "blue" };
 
@@ -14,7 +19,7 @@ function SearchForm() {
 
     if (e.key !== "Enter" || !text) return;
 
-    if (chips.includes(text)) {
+    if (tags.includes(text)) {
       return setValidationError("Cannot add the same input more than once.");
     }
 
@@ -31,11 +36,11 @@ function SearchForm() {
   const searchPost = () => {
     if (search.trim() || tags) {
       dispatch(getPostsBySearch({ search, tags: tags.join(",") }));
-      history.push(
+      navigate(
         `/posts/search?searchQuery=${search || "none"}&tags=${tags.join(",")}`
       );
     } else {
-      history.push("/");
+      navigate("/");
     }
   };
 

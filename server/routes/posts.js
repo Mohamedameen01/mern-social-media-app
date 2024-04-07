@@ -1,4 +1,4 @@
-import express from "express";
+import express, { response } from "express";
 
 import {
   createPosts,
@@ -60,5 +60,15 @@ router.patch("/toggle-like/:id", verifyLogin, (req, res) => {
       res.status(404).json(error);
     });
 });
+
+router.get('/search', (req, res) => {
+
+  getPostsBySearch(req.query).then((response) => {
+    res.status(200).json(response)
+  })
+  .catch((error) => {
+    res.status(200).json(error);
+  })
+} )
 
 export default router;

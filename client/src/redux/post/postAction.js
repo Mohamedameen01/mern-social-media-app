@@ -4,6 +4,7 @@ import {
   DELETE_POST,
   UPDATE_POST,
   LIKE_POST,
+  FETCH_BY_SEARCH,
 } from "./postType";
 import * as api from "../../api/index";
 
@@ -63,6 +64,13 @@ export const likePost = (postId) => async (dispatch) => {
       type: LIKE_POST,
       payload: data,
     });
+  } catch (error) {}
+};
+
+export const getPostsBySearch = (searchQuery) => async (dispatch) => {
+  try {
+    const {data} = await api.fetchPostsBySearch(searchQuery);
+    dispatch({ type: FETCH_BY_SEARCH, payload: { data } });
   } catch (error) {
     console.log(error);
   }
