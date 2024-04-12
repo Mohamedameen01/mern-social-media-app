@@ -5,7 +5,6 @@ import PostForm from "../components/PostForm/PostForm";
 import Posts from "../components/Posts/Posts";
 import Navbar from "../components/Navbar/Navbar";
 import { getUserPosts } from "../redux/post/postAction";
-import SearchForm from "../components/SearchForm/SearchForm";
 
 
 function Home() {
@@ -24,7 +23,6 @@ function Home() {
           <Posts />
         </div>
         <div>
-          <SearchForm />
           <PostForm id={id} post={post} />
         </div>
       </div>

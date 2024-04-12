@@ -70,7 +70,7 @@ function PostForm({ id, post }) {
   }
 
   return (
-    <div className="m-2">
+    <div className="m-2 border border-gray-500 rounded-md p-3">
       <h1 className="m-2 text-center text-xl font-semibold">
         {editPost.id ? `Recalling ${post.title} Memory` : "Creating a Memory"}
       </h1>

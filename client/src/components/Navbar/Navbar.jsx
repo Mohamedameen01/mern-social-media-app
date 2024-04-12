@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
-import { jwtDecode } from 'jwt-decode';
+import { jwtDecode } from "jwt-decode";
 
 import LogoutIcon from "@mui/icons-material/Logout";
 import { LOGOUT } from "../../redux/auth/actionTypes";
@@ -31,11 +31,19 @@ function Navbar() {
     setUser(JSON.parse(localStorage.getItem("profile")));
   }, [location]);
 
+  const headingStyle = {
+    fontFamily: "Oswald, sans-serif",
+    fontOpticalSizing: "auto",
+  };
+
   return (
     <div className="h-[100px] flex justify-between items-center gap-3 m-5 border-2 shadow-lg shadow-indigo-500/50 rounded-lg p-4">
       <div className="">
         <Link to="/">
-          <h1 className="text-2xl md:text-4xl font-semibold text-blue-600">
+          <h1
+            style={headingStyle}
+            className="text-2xl md:text-4xl font-semibold text-gray-950"
+          >
             Memories
           </h1>
         </Link>
@@ -72,7 +80,7 @@ function Navbar() {
         {user && (
           <div className={dropDown ? "relative" : "hidden"}>
             <div className="w-32 absolute top-0 right-0 truncate bg-white border-slate-800 shadow-lg shadow-black text-slate-800 mt-1 rounded-lg z-10">
-              <Link to='/profile'>
+              <Link to="/profile">
                 <div className="flex items-center gap-2 m-1 px-3 py-1 hover:bg-gray-100 hover:w-full cursor-pointer">
                   {user?.data?.picture ? (
                     <img

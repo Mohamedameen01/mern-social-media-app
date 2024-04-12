@@ -61,14 +61,4 @@ router.patch("/toggle-like/:id", verifyLogin, (req, res) => {
     });
 });
 
-router.get('/search', (req, res) => {
-
-  getPostsBySearch(req.query).then((response) => {
-    res.status(200).json(response)
-  })
-  .catch((error) => {
-    res.status(200).json(error);
-  })
-} )
-
 export default router;

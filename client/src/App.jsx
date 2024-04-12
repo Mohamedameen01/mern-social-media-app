@@ -9,9 +9,7 @@ function App() {
   return (
     <BrowserRouter>
       <Routes>
-        <Route path="/" exact element={<Navigate to="/posts" /> } />
-        <Route path="/posts" element={<Home />} />
-        <Route path="/posts/search" element={<Home />} />
+        <Route path="/" exact element={<Home/> } />
         <Route path="/auth" element={<Auth />} />
         <Route path="/profile" element={<Profile />} />
         <Route path="/edit-profile" element={<Edit />} />

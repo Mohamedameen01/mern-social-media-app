@@ -100,20 +100,3 @@ export function toggleLike(id) {
   });
 }
 
-export function getPostsBySearch(query) {
-  return new Promise(async (resolve, reject) => {
-    const { searchQuery, tags } = query;
-
-    const title = new RegExp(searchQuery, "i");
-
-    const posts = await get()
-      .collection(DETAILS_COLLECTION)
-      .find({ $or: [{ title }, { tags: { $in: tags.split(",") } }] });
-    if (posts) {
-      resolve({ data: posts });
-      console.log(posts);
-    } else {
-      reject({ message: "Please try again!" });
-    }
-  });
-}
