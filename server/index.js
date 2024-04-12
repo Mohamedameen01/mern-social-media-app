@@ -13,7 +13,7 @@ const app = express();
 const port = 5000;
 
 const corsOptions = {
-  origin: "http://localhost:5173",
+  origin: "https://mern-memories24.netlify.app",
   methods: "GET,HEAD,PUT,PATCH,POST,DELETE",
   credentials: true, //access-control-allow-credentials:true
   optionSuccessStatus: 200,
